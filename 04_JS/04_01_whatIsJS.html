@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>Apply JavaScript example</title>
+
+</head>
+
+<body>
+    <!-- 1번 2번 버튼 -->
+    <!-- <button>Click me</button> -->
+
+    <!-- 3번 버튼 -->
+    <!-- <button onclick="createParagraph()">Click me!</button> -->
+
+    <!-- 1. HTML 내부의 자바스크립트 -->
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function createParagraph() {
+                let para = document.createElement('p');
+                para.textContent = 'You clicked the button!';
+                document.body.appendChild(para);
+            }
+
+            const buttons = document.querySelectorAll('button');
+
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener('click', createParagraph);
+            }
+        });
+    </script> -->
+
+    <!-- 2. HTML 외부의 자바스크립트 -->
+    <!-- <script src="04_01_script.js" defer></script> -->
+
+    <!-- 3. 인라인 자바스크립트 -->
+    <!-- <script>
+        function createParagraph() {
+            let para = document.createElement('p');
+            para.textContent = 'You clicked the button!';
+            document.body.appendChild(para);
+        }
+    </script> -->
+</body>
+
+</html>
