@@ -20,7 +20,7 @@
 <h3><a href="https://mystudy.tistory.com/category/%EC%9D%B8%ED%84%B0%EB%84%B7">[Part 0] 인터넷</a></h3>
 <ul>
         <li><a href="https://mystudy.tistory.com/18?category=981117">인터넷은 어떻게 작동하는 것일까? [네트워크]</a></li>
-        <li><a href="https://mystudy.tistory.com/19?category=981117">인터넷은 어떻게 작동하는 것일까? [네트워크]</a></li>
+        <li><a href="https://mystudy.tistory.com/19?category=981117">인터넷은 어떻게 작동하는 것일까? [패킷]</a></li>
         <li><a href="https://mystudy.tistory.com/20?category=981117">웹 브라우저에 대해서 (1)</a></li>
         <li><a href="https://mystudy.tistory.com/21?category=981117">웹 브라우저에 대해서 (2)</a></li>
         <li><a href="https://mystudy.tistory.com/22?category=981117">웹 브라우저에 대해서 (3)</a></li>
