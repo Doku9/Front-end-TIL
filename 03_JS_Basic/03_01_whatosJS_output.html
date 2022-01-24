@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>자바스크립트 출력</title>
+</head>
+<body>
+<!-- #1 innerHTML -->
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "안녕하세요(innerHTML)";
+</script>
+
+<!-- #2 document.write() -->
+<h1>제목: document.write</h1>
+<p>버튼을 실행하면 기존 HTML이 사라집니다.</p>
+
+<button type="button" onclick="document.write('테스트목적으로 사용하자(document.write)')">버튼</button>
+
+<!-- #3 window.alert() -->
+<script>
+    alert("경고창(alert)");
+</script>
+
+<!-- #4 console.log() -->
+<script>
+    console.log("콘솔(console.log)")
+</script>
+
+</body>
+</html>
