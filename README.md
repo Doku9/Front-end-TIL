@@ -9,9 +9,9 @@
 <h3>목차</h3>
 <ul>
         <li><a href="https://mystudy.tistory.com/category/%EC%9D%B8%ED%84%B0%EB%84%B7">[Part 0] 인터넷</a></li>
-        <li><a href="https://mystudy.tistory.com/category/HTML">[Part 1] HTML</a></li>
-        <li><a href="https://mystudy.tistory.com/category/CSS">[Part 2] CSS</a></li>
-        <li><a href="https://mystudy.tistory.com/category/JS">[Part 3] JS</a></li>
+        <li><a href="https://github.com/Doku9/Front-end-TIL#part-1-html">[Part 1] HTML</a></li>
+        <li><a href="https://github.com/Doku9/Front-end-TIL#part-2-css">[Part 2] CSS</a></li>
+        <li><a href="https://github.com/Doku9/Front-end-TIL#part-3-js">[Part 3] JS</a></li>
 </ul>
 
 
