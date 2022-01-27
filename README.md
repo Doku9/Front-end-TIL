@@ -56,4 +56,5 @@
         <li><a href="https://mystudy.tistory.com/34?category=981439">자바스크립트 변수</a></li>
         <li><a href="https://mystudy.tistory.com/36?category=981439">자바스크립트 연산자</a></li>
         <li><a href="https://mystudy.tistory.com/37?category=981439">자바스크립트 문자열</a></li>
+        <li><a href="https://mystudy.tistory.com/38?category=981439">자바스크립트 배열</a></li>
 </ul>
