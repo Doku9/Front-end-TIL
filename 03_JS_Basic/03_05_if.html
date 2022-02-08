@@ -25,6 +25,7 @@ select.addEventListener('change', setWeather);
 
 function setWeather() {
   const choice = select.value;
+  const day = new Date;
 
   switch (choice) {
     case 'sunny':
