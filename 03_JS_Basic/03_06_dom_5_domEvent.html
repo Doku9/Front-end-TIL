@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p onclick="this.innerHTML = '안녕하세요!'">클릭!</p>
+    <!-- #1 -->
+    <input type="text" value="안녕하세요" onchange="bgChange(this)" /> <br>
+
+    <!-- #2 -->
+    <input type="text" id="fname" onchange="upperCase()"> <br>
+
+    <!-- #3 -->
+    <p onmouseover="mOver(this)" onmouseout="mOut(this)">여기입니다!</p>
+
+    <script>
+        // #1
+        function bgChange(obj) {
+            if (obj.value == "안녕하세요") {
+                obj.style.backgroundColor = 'white';
+            } else
+                obj.style.backgroundColor = 'yellow';
+        }
+
+        // #2
+        function upperCase() {
+            const x = document.getElementById("fname");
+            x.value = x.value.toUpperCase();
+        }
+
+        // #3
+        function mOver(obj) {
+            obj.innerHTML = "안녕하세요"
+        }
+
+        function mOut(obj) {
+            obj.innerHTML = "또 오세요~"
+        }
+    </script>
+
+</body>
+
+</html>
