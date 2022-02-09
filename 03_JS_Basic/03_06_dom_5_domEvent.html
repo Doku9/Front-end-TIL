@@ -9,39 +9,48 @@
 </head>
 
 <body>
-    <p onclick="this.innerHTML = '안녕하세요!'">클릭!</p>
-    <!-- #1 -->
-    <input type="text" value="안녕하세요" onchange="bgChange(this)" /> <br>
+    <!-- #1 인라인 이벤트 리스너 -->
+    <button onclick="alert('인라인 이벤트 리스너입니다.')">인라인 이벤트 리스너</button>
 
-    <!-- #2 -->
-    <input type="text" id="fname" onchange="upperCase()"> <br>
+    <!-- #2 이벤트 핸들러 프로퍼티 -->
+    <button id="btn1">이벤트 핸들러 프로퍼티</button>
 
-    <!-- #3 -->
-    <p onmouseover="mOver(this)" onmouseout="mOut(this)">여기입니다!</p>
+    <!-- #3 addEvnetListener 메서드 -->
+    <button id="btn2">addEventListener 메서드</button>
 
     <script>
-        // #1
-        function bgChange(obj) {
-            if (obj.value == "안녕하세요") {
-                obj.style.backgroundColor = 'white';
-            } else
-                obj.style.backgroundColor = 'yellow';
+        // #2 이벤트 핸들러 프로퍼티
+        let btn1 = document.getElementById("btn1");
+
+        function alertMsg(msg) {
+            alert(msg);
+        }
+        function alertInnerHTML() {
+            alert(this.innerHTML);
         }
 
-        // #2
-        function upperCase() {
-            const x = document.getElementById("fname");
-            x.value = x.value.toUpperCase();
-        }
+        // 잘못된 예
+        // btn1.onclick = alertMsg("첫 번째 이벤트 핸들러 프로퍼티 입니다.");
+        // btn1.onclick = alertMsg("두 번째 이벤트 핸들러 프로퍼티 입니다.");
 
-        // #3
-        function mOver(obj) {
-            obj.innerHTML = "안녕하세요"
+        btn1.onclick = function () {
+            alertMsg("첫 번째 이벤트 핸들러 프로퍼티 입니다.");
         }
+        btn1.onclick = alertInnerHTML;
 
-        function mOut(obj) {
-            obj.innerHTML = "또 오세요~"
-        }
+
+        // #3 addEventListener 메서드
+        let btn2 = document.getElementById("btn2");
+
+       
+
+        btn2.addEventListener("click", function () {
+            alertMsg("첫 번째 addEventListerner 입니다.")
+        });
+        btn2.addEventListener("click", function () {
+            alertMsg("두 번째 addEventListerner 입니다.")
+        });
+        btn2.addEventListener("click", alertInnerHTML);
     </script>
 
 </body>
