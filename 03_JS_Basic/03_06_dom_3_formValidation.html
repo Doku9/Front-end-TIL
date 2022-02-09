@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document</title>
+    <style>
+        .result {
+            background-color: rgba(169, 169, 169, 0.342);
+            border: rgb(59, 59, 59) 3px solid;
+        }
+
+        .emphasizeText {
+            font-weight: 700;
+        }
+
+        .blueText {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="eventNotice">
+        <div>
+            <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+                Name: <input type="text" name="fname">
+                Name1: <input type="text" name="fname1">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+        }
+        
+    </script>
+
+</body>
+
+</html>
