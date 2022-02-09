@@ -4,11 +4,16 @@
 <head>
     <title>Document</title>
     <style>
-
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <!-- ----------------- 이벤트 핸들러 ----------------- -->
     <!-- #1 인라인 이벤트 리스너 -->
     <button onclick="alert('인라인 이벤트 리스너입니다.')">인라인 이벤트 리스너</button>
 
@@ -18,13 +23,81 @@
     <!-- #3 addEvnetListener 메서드 -->
     <button id="btn2">addEventListener 메서드</button>
 
+    <hr>
+
+    <!-- ----------------- 이벤트 객체 ----------------- -->
+    <!-- #1 인라인 이벤트 리스너의 이벤트 객체 -->
+    <button onclick="alert(event.type)">인라인 이벤트 리스너의 이벤트 객체</button>
+
+    <!-- #2  addEventListener 메서드의 이벤트 객체-->
+    <button id="btn3">addEventListener 메서드의 이벤트 객체</button>
+
+    <hr>
+
+    <!-- ----------------- 이벤트 위임 ----------------- -->
+    <!-- #1 이벤트 위임 -->
+    <div id="div1">
+        <button>버튼입니다.</button>
+    </div>
+
+    <!-- #2 버블링 -->
+    <h3>버블링</h3>
+    <div id="bubbling1">
+        1번째 div
+        <div id="bubbling2">
+            2번째 div
+            <div id="bubbling3">
+                3번째 div
+            </div>
+        </div>
+    </div>
+
+    <!-- #3 버블링 중단-->
+    <h3>버블링 중단</h3>
+    <div id="bubbling4">
+        1번째 div
+        <div id="bubbling5">
+            2번째 div
+            <div id="bubbling6">
+                3번째 div
+            </div>
+        </div>
+    </div>
+
+    <!-- #4 캡처링-->
+    <h3>캡처링</h3>
+    <div id="capture1">
+        1번째 div
+        <div id="capture2">
+            2번째 div
+            <div id="capture3">
+                3번째 div
+            </div>
+        </div>
+    </div>
+
+    <!-- #5 이벤트 위임 -->
+    <h3>이벤트 위임</h3>
+    <ul class="itemList">
+        <li>
+            <input type="checkbox" id="item1">
+            <label for="item1">1번</label>
+        </li>
+        <li>
+            <input type="checkbox" id="item2">
+            <label for="item2">2번</label>
+        </li>
+    </ul>
+
     <script>
+        // ----------------- 이벤트 핸들러 -----------------
         // #2 이벤트 핸들러 프로퍼티
         let btn1 = document.getElementById("btn1");
 
         function alertMsg(msg) {
             alert(msg);
         }
+
         function alertInnerHTML() {
             alert(this.innerHTML);
         }
@@ -36,13 +109,16 @@
         btn1.onclick = function () {
             alertMsg("첫 번째 이벤트 핸들러 프로퍼티 입니다.");
         }
+        btn1.onclick = function () {
+            alertMsg("두 번째 이벤트 핸들러 프로퍼티 입니다.");
+        }
         btn1.onclick = alertInnerHTML;
 
 
         // #3 addEventListener 메서드
-        let btn2 = document.getElementById("btn2");
 
-       
+        // 잘못된 예
+        // btn2.addEventListener("click", alertMsg("첫 번째 addEventListerner 입니다."));
 
         btn2.addEventListener("click", function () {
             alertMsg("첫 번째 addEventListerner 입니다.")
@@ -51,6 +127,81 @@
             alertMsg("두 번째 addEventListerner 입니다.")
         });
         btn2.addEventListener("click", alertInnerHTML);
+
+
+        // ----------------- 이벤트 객체 -----------------
+        // #2 addEventListener 메서드의 이벤트 객체
+        let btn3Fuc = {
+            handleEvent(event) {
+                alert(event.type + " 이벤트가 " + event.currentTarget + "에서 발생했습니다.");
+            }
+        };
+
+        btn3.addEventListener('click', btn3Fuc);
+
+        // ----------------- 이벤트 핸들러 -----------------
+        // #1 이벤트 위임
+        div1.addEventListener("click", function () {
+            alert("div 태그 이벤트 입니다.")
+        });
+
+        // #2 버블링
+        bubbling1.addEventListener("click", function () {
+            alert("1번째 div 이벤트 입니다.")
+        });
+        bubbling2.addEventListener("click", function () {
+            alert("2번째 div 이벤트 입니다.")
+        });
+        bubbling3.addEventListener("click", function () {
+            alert("3번째 div 이벤트 입니다.")
+        });
+
+        // #3 버블링 중단
+        bubbling4.addEventListener("click", function () {
+            alert("1번째 div 이벤트 입니다.")
+        });
+        bubbling5.addEventListener("click", function () {
+            alert("2번째 div 이벤트 입니다.");
+        });
+        bubbling6.addEventListener("click", function () {
+            alert("3번째 div 이벤트 입니다.")
+            // event.stopPropagation();
+        });
+
+        // #4 캡처링
+        capture1.addEventListener("click", function () {
+            alert("1번째 div 이벤트 입니다.")
+        }, {
+            capture: true
+        });
+        capture2.addEventListener("click", function () {
+            alert("2번째 div 이벤트 입니다.")
+        }, {
+            capture: true
+        });
+        capture3.addEventListener("click", function () {
+            alert("3번째 div 이벤트 입니다.")
+        }, true);
+
+        // #5 이벤트 위임
+        let itemList = document.querySelector(".itemList");
+
+        let li = document.createElement("li");
+        let input = document.createElement("input");
+        let label = document.createElement("label");
+        let labelText = document.createTextNode("3번");
+
+        input.setAttribute("type", "checkbox");
+        input.setAttribute("id", "item3");
+        label.setAttribute("for", "item3");
+        label.appendChild(labelText);
+        li.appendChild(input);
+        li.appendChild(label);
+        itemList.appendChild(li);
+
+        itemList.addEventListener("click", () => {
+            alert("클릭하였습니다!");
+        })
     </script>
 
 </body>
