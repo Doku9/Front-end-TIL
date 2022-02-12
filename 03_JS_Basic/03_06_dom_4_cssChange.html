@@ -13,25 +13,24 @@
             font-weight: 700;
         }
 
-        .blueText {
-            color: blue;
-        }
+
     </style>
 </head>
 
 <body>
     <button onclick="chageColor()">chageColor</button>
-    <button onclick="chageFontWeight()">chageColor</button>
+    <button onclick="chageFontWeight()">chageFontWeight</button>
     <p id="p1">안녕하세요</p>
-    <p class="p2">반갑습니다</p>
+    <p id="p2">반갑습니다</p>
 
     <script>
        function chageColor () {
-           document.getElementById("test1").style.color = "blue"
+           document.getElementById("p1").style.color = "blue"
        }
 
        function chageFontWeight () {
-        document.getElementsByTagName("p").style.color = "blue"
+        document.getElementById("p2").style.fontWeight = "900"
+        // 스타일 속성값에 -가 있는 경우 뺴고 카멜케이스로 변경한다.
        }
         
     </script>
