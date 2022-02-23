@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Document</title>
+    <title>Document</title>
 </head>
+
 <body>
-1
-<script>
-const person = {
-    name: '홍길동',
-    age: 28
-}
+    1
+    <script>
+        // #1 리터럴 표기
+        const person = {
+            name: '홍길동',
+            age: 28
+        }
 
-person.name = "male";
+        person.name = "male";
 
-console.log(person.name)
-</script>
+        console.log(person.name)
+
+        //#2 생성자
+        function Person(first, last, age) {
+            this.firstName = first;
+            this.lastName - last;
+            this.age = age;
+        }
+
+        const person1 = new Person("John", "Doe", 20)
+
+        //#3 Object.create()
+        //생성자 함수
+        function Drink(name) {
+            this.name = name;
+            this.price = 500;
+        }
+
+        //프로토타입 프로퍼티 추가
+        Drink.prototype.color = "black";
+
+        //객체(인스턴스) 생성
+        var coke = new Drink("콜라");
+        var coffee = Object.create(Drink.prototype, {
+            taste: {
+                value: "good"
+            }
+        }); //새로운 프로퍼티 추가
+
+        //new 키워드
+        console.log(coke.name); //"콜라"
+        console.log(coke.price); //500
+        console.log(coke.color); //"black"
+        console.log(coke.taste); //"good"
+
+        //Object.create() 메서드
+        console.log(coffee.name); //undefined
+        console.log(coffee.price); //undefined
+        console.log(coffee.color); //"black"
+        console.log(coffee.taste); //"good"
+    </script>
 </body>
+
 </html>
