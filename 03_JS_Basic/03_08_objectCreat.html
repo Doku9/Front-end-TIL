@@ -21,7 +21,7 @@
         //#2 생성자
         function Person(first, last, age) {
             this.firstName = first;
-            this.lastName - last;
+            this.lastName = last;
             this.age = age;
         }
 
@@ -56,6 +56,50 @@
         console.log(coffee.price); //undefined
         console.log(coffee.color); //"black"
         console.log(coffee.taste); //"good"
+
+
+        // 객체 접근자
+        //객체 접근자를 사용하는 이유
+        
+        //객체 접근자를 사용하는 이유#1 - 생성자 함수 프로퍼티
+        function CreateUserA(playerName) {
+            this.name = playerName;
+            this.money = 500;
+            this.getMoney = function() {
+                return this.money
+            }
+        }
+
+        let user1 = new CreateUserA("멋진케릭터")
+
+        //객체 접근자를 사용하는 이유#2 - 생성자 함수 프로퍼티 정보 은닉
+        // function CreateUserB(playerName) {
+        //     let name = playerName;
+        //     let money = 500;
+
+        //     this.getMoney = function() {
+        //         return money
+        //     }
+        // }
+
+        // let user2 = new CreateUserB("멋진케릭터")
+
+        //객체 접근자를 사용하는 이유#2 - 생성자 함수에 접근자 사용, 정보 은닉
+        function CreateUserB(playerName) {
+            let name = playerName;
+            let money = 500;
+            
+            return {
+                get getMoney() {
+                    return money;
+                },
+                set setMoney(value) {
+                    money = value;
+                }
+            }
+        }
+
+        let user2 = new CreateUserB("짱쎈케릭터")
     </script>
 </body>
 
