@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Document</title>
+</head>
+<body>
+
+<script>
+//#1 클래스 기본
+class User {
+    constructor(name) {
+        this.name = name;
+    }
+    info() {
+        alert(this.name);
+    }
+}
+
+//클래스는 함수이다.
+console.log(typeof User);  //function
+
+//클레스는 생성자 함수와 동일하다.
+console.log(User === User.prototype.constructor);  //true
+
+//클래스 내부에서 정의한 메소드는 prototype에 저장된다.
+console.log(User.prototype.info);  //alert(this.name);
+
+let user1 = new User("JohnDoe")
+console.log(user1)
+
+
+//#2 클래스 상속
+class Parent {
+    constructor(name) {
+        this.name = name;
+        this.eyeColor = "brown"
+    }
+    info() {
+        return this.name;
+    }
+}
+
+class Child extends Parent {
+    constructor(name1) {
+        super(name1);
+        // this.eyeColor = eyeColor;
+    }
+    show() {
+        return this.info() + "," + this.name + "," + this.eyeColor;
+    }
+}
+</script>
+</body>
+</html>
