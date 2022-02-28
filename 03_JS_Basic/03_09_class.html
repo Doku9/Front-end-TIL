@@ -30,25 +30,117 @@ console.log(user1)
 
 
 //#2 클래스 상속
-class Parent {
-    constructor(name) {
-        this.name = name;
-        this.eyeColor = "brown"
-    }
-    info() {
-        return this.name;
-    }
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//         this.speed = 0;
+//     }
+//     run(speed) {
+//         this.speed = speed;
+//         return alert(`${this.name} 은/는 속도 ${this.speed}로 달립니다.`);
+//     }
+//     stop(){
+//         this.speed = 0;
+//         return alert(`${this.name} 이/가 멈췄습니다.`);
+//     }
+// }
+
+// let animal = new Animal("동물");
+
+// class Dog extends Animal {
+//     bark() {
+//         alert(`${this.name} 이/가 짖었습니다!`);
+//     }
+// }
+
+// let dog = new Dog("리트리버")
+// dog.run(1);
+// dog.bark();
+
+//#3 클래스 메서드 오버라이딩
+//클래스 생성
+// class Animal {
+
+//     constructor(name) {
+//         this.name = name;
+//         this.speed = 0;
+//     }
+
+//     run(speed) {
+//         this.speed = speed;
+//         return alert(`${this.name} 은/는 속도 ${this.speed}로 달립니다.`);
+//     }
+
+//     stop(){
+//         this.speed = 0;
+//         return alert(`${this.name} 이/가 멈췄습니다.`);
+//     }
+// }
+
+// //클래스 상속
+// class Dog extends Animal {
+
+//     bark() {
+//         alert(`${this.name} 이/가 짖었습니다!`);
+//     }
+   
+//     stop() {
+//     super.stop(); 
+//     this.bark();
+//     }
+// }
+
+// let dog = new Dog("리트리버")
+// dog.run(1);  
+// dog.stop(); 
+
+//#4 클래스 constructor 오버라이딩
+//클래스 생성
+class Animal {
+
+constructor(name) {
+    this.name = name;
+    this.speed = 0;
 }
 
-class Child extends Parent {
-    constructor(name1) {
-        super(name1);
-        // this.eyeColor = eyeColor;
-    }
-    show() {
-        return this.info() + "," + this.name + "," + this.eyeColor;
-    }
+run(speed) {
+    this.speed = speed;
+    return alert(`${this.name} 은/는 속도 ${this.speed}로 달립니다.`);
 }
+
+stop(){
+    this.speed = 0;
+    return alert(`${this.name} 이/가 멈췄습니다.`);
+}
+}
+
+// //클래스 상속(잘못된 예)
+class Dog extends Animal {
+constructor(name, color){
+    this.name = name;
+    this.color = color
+}
+bark() {
+    alert(`${this.name} 이/가 짖었습니다!`);
+}
+}
+
+let dog = new Dog("리트리버") //Uncaught ReferenceError
+
+//클래스 상속
+class Cat extends Animal {
+constructor(name, color){
+    super(name)
+    this.color = color
+}
+grooming() {
+    alert(`${this.name} 이/가 그루밍을 했습니다!`);
+}
+}
+
+let cat = new Cat("시베리안 블루", "gray")
+
+
 </script>
 </body>
 </html>
