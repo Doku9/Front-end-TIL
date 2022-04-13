@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>px em rem</title>
+    <style>
+      .compare {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+      }
+
+      .compare .normalBox {
+        border: solid 2px #000;
+        background-color: red;
+      }
+
+      .compare .pxBox {
+        border: solid 2px #000;
+        background-color: yellow;
+        width: 10px;
+      }
+
+      .compare .emBox {
+        border: solid 2px #000;
+        background-color: green;
+        width: 10em;
+      }
+
+      .compare .remBox {
+        border: solid 2px #000;
+        background-color: blue;
+        width: 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="compare">
+      <div>
+        <p class="normalBox">normal</p>
+      </div>
+      <div>
+        <p class="pxBox">px</p>
+      </div>
+      <div>
+        <p class="emBox">em</p>
+      </div>
+      <div>
+        <p class="remBox">rem</p>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>
