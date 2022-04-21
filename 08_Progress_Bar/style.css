@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #8360ed, #ff1253);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-width: 10rem;
+  min-height: 10rem;
+  border-radius: 2.5rem;
+  background-color: white;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.progress {
+  width: 40rem;
+}
+
+.progress__bar {
+  margin: 1rem;
+}
+
+.progress__name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.progress__line {
+  position: relative;
+  height: 0.8rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.15);
+
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15),
+    1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.progress__figure {
+  height: 100%;
+  width: 80%;
+  background: linear-gradient(45deg, #8360ed, #ff1253);
+  position: absolute;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15),
+    1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.progress__figure::before {
+  position: absolute;
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  right: -0.4rem;
+  top: -0.4rem;
+  border-radius: 50%;
+  color: white;
+  background-color: white;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15),
+    1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.progress__figure::after {
+  position: absolute;
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  right: -0.4rem;
+  top: -0.4rem;
+  border-radius: 50%;
+  color: white;
+  background-color: white;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15),
+    1px 1px 1px rgba(0, 0, 0, 0.3);
+}
