@@ -91,8 +91,8 @@
       db.collection("product")
         .get()
         .then((snapshoot) => {
-          snapshoot.forEach((doc) => {
-            console.log(doc.data());
+          snapshoot.forEach((i) => {
+            console.log(i.data());
           });
         });
     </script>
