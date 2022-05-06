@@ -73,9 +73,13 @@
         id="title"
         placeholder="title"
       />
-      <textarea class="form-control mt-2" id="content">content</textarea>
+      <textarea
+        class="form-control mt-2"
+        id="content"
+        placeholder="content"
+      ></textarea>
       <input
-        type="text"
+        type="number"
         class="form-control mt-2"
         id="price"
         placeholder="price"
@@ -94,6 +98,7 @@
 
     <script>
       const db = firebase.firestore();
+      const storage = firebase.storage();
 
       //   데이터를 올리는 방법은 set과 add가 있다.
       // set 은 제목을 지정하여 올리는 방법
@@ -106,7 +111,34 @@
       //     .set({ 가격: 50000, 상품명: "변기" });
 
       // #2 add
-      db.collection("product").add({ 가격: 25000, 상품명: "이어폰" });
+      // db.collection("product").add({ 가격: 25000, 상품명: "이어폰" });
+
+      // ---------숙제----------
+
+      $("#send").click(() => {
+        let file = document.querySelector("#image").files[0];
+        let storageRef = storage.ref();
+        let StorageRoute = storageRef.child("image/" + file.name);
+        let StorageUpload = StorageRoute.put(file);
+
+        let uploadData = {
+          제목: $("#title").val(),
+          내용: $("#content").val(),
+          가격: Number($("#price").val()),
+          날짜: new Date(),
+          이미지: $("#image").val(),
+        };
+
+        db.collection("product")
+          .add(uploadData)
+          .then((reslut) => {
+            console.log(reslut);
+            window.location.href = "/index.html";
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
     </script>
   </body>
 </html>
