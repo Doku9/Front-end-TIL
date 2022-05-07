@@ -29,7 +29,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Market</a>
+        <a class="navbar-brand" href="index.html">Market</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -47,7 +47,7 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="upload.html">upload</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
@@ -121,23 +121,39 @@
         let StorageRoute = storageRef.child("image/" + file.name);
         let StorageUpload = StorageRoute.put(file);
 
-        let uploadData = {
-          제목: $("#title").val(),
-          내용: $("#content").val(),
-          가격: Number($("#price").val()),
-          날짜: new Date(),
-          이미지: $("#image").val(),
-        };
+        StorageUpload.on(
+          "state_changed",
+          // 변화시 동작하는 함수
+          null,
+          // 에러시 동작하는 함수
+          (error) => {
+            console.log(error("실패사유는", error));
+          },
+          // 성공시 동작하는 함수
+          () => {
+            StorageUpload.snapshot.ref.getDownloadURL().then((url) => {
+              console.log("업로드 경로", url);
 
-        db.collection("product")
-          .add(uploadData)
-          .then((reslut) => {
-            console.log(reslut);
-            window.location.href = "/index.html";
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+              let uploadData = {
+                제목: $("#title").val(),
+                내용: $("#content").val(),
+                가격: Number($("#price").val()),
+                날짜: new Date(),
+                이미지: url,
+              };
+
+              db.collection("product")
+                .add(uploadData)
+                .then((reslut) => {
+                  console.log(reslut);
+                  // window.location.href = "/index.html";
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
+          }
+        );
       });
     </script>
   </body>
