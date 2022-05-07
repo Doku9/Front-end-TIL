@@ -39,3 +39,8 @@ $("#login").click(function () {
       console.log(result.user);
     });
 });
+
+// ---------- logout ----------
+$("#logout").click(function () {
+  firebase.auth().signOut();
+});
