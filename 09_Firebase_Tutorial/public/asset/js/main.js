@@ -12,9 +12,9 @@ db.collection("product")
         </div>
         <div class="flex-gorw-1 p-4">
           <h5 class="title">
-          ${i.data().제목}
+          <a href="/detail.html?id=${i.id}">${i.data().제목}</a>
           </h5>
-          <p class="data">${i.data().날짜}</p>
+          <p class="data">${Date(i.data().날짜)}</p>
           <p class="price">
           ${i.data().가격}원
           </p>
