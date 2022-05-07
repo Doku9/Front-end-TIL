@@ -43,4 +43,16 @@ $("#login").click(function () {
 // ---------- logout ----------
 $("#logout").click(function () {
   firebase.auth().signOut();
+  localStorage.removeItem("user");
+});
+
+// ---------- localStorage set userData----------
+let localUserData = localStorage.getItem("user");
+$("#userName").html(JSON.parse(localUserData).displayName);
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    localStorage.setItem("user", JSON.stringify(user));
+    $("#userName").html(user.displayName);
+  }
 });
