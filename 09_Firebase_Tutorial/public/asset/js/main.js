@@ -6,8 +6,9 @@ db.collection("product")
     snapshot.forEach((i) => {
       let template = `
         <div class="product">
-        <div class="thumbnail">
-        <img src=${i.data().이미지} class="thumbnail__img">
+        <div class="thumbnail" style="background-image: url('${
+          i.data().이미지
+        }')">
         </div>
         <div class="flex-gorw-1 p-4">
           <h5 class="title">
