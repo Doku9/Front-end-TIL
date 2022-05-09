@@ -14,7 +14,7 @@ db.collection("product")
     style="background-image: url('${result.data().이미지}')"
   ></div>
   <div>
-    <h5>올린사람 : 모름</h5>
+    <h5>올린사람 : ${result.data().이름}</h5>
     <hr />
     <h5 class="title">${result.data().제목}</h5>
     <p class="date">${Date(result.data().날짜)}</p>
@@ -22,4 +22,18 @@ db.collection("product")
   </div>`;
 
     $(".container").append(templateDetail);
+
+    // ---------- hide edit Btn ----------
+    console.log("1" + result.data().uid);
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (result.data().uid != user.uid) {
+        $("#edit").css("display", "none");
+      }
+    });
   });
+
+//  ----------- Go to edit Page ----------
+$("#edit").click(function () {
+  window.location.href = `/edit.html?id=${queryString.get("id")}`;
+});
