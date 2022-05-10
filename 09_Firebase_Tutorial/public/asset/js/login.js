@@ -16,8 +16,14 @@ $("#register").click(function () {
     .auth()
     .createUserWithEmailAndPassword(String(email), String(password))
     .then((result) => {
-      console.log(result);
-      console.log(result.user);
+      // user data set firebase
+
+      let userData = {
+        name: name,
+        email: email,
+      };
+      db.collection("user").doc(result.user.uid).set(userData);
+
       result.user.updateProfile({
         displayName: name,
       });
@@ -48,7 +54,9 @@ $("#logout").click(function () {
 
 // ---------- localStorage set userData----------
 let localUserData = localStorage.getItem("user");
-$("#userName").html(JSON.parse(localUserData).displayName);
+if (localUserData) {
+  $("#userName").html(JSON.parse(localUserData).displayName);
+}
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
