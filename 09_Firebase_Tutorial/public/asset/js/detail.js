@@ -8,20 +8,13 @@ db.collection("product")
   .doc(queryString.get("id"))
   .get()
   .then((result) => {
-    let templateDetail = `
-    <div
-    class="detail-pic my-4"
-    style="background-image: url('${result.data().이미지}')"
-  ></div>
-  <div>
-    <h5>올린사람 : ${result.data().이름}</h5>
-    <hr />
-    <h5 class="title">${result.data().제목}</h5>
-    <p class="date">${Date(result.data().날짜)}</p>
-    <p class="price">${result.data().가격}원</p>
-  </div>`;
-
-    $(".container").append(templateDetail);
+    $("#detail_img").css({
+      "background-image": `url(${result.data().이미지})`,
+    });
+    $("#detail_name").html(result.data().이름);
+    $("#detail_id").html(result.data().제목);
+    $("#detail_date").html(result.data().날짜);
+    $("#detail_price").html(result.data().가격);
 
     // ---------- hide edit Btn ----------
     console.log("1" + result.data().uid);
