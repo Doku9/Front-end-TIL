@@ -50,6 +50,6 @@ $("#chat").click(function () {
     .doc(`${productData.participant[0]}&${productData.participant[1]}`)
     .set(productData)
     .then(() => {
-      window.location.href = `/chat.html?buyer=${productData.participant[0]}&seller=${productData.participant[1]}`;
+      window.location.href = `/chat.html`;
     });
 });
