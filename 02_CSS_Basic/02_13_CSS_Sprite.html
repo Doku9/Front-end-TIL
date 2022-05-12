@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Sprite</title>
+    <style>
+      .box__main {
+        width: 300px;
+        height: 300px;
+      }
+
+      .box__sub {
+        width: 100px;
+        height: 100px;
+      }
+
+      .rainbow {
+        background-image: url(./asset/rainbowBox.png);
+      }
+
+      .rainbow-red {
+        background-position: 0 0;
+      }
+
+      .rainbow-orange {
+        background-position: -100px 0;
+      }
+      .rainbow-yellow {
+        background-position: -200px 0;
+      }
+
+      .rainbow-lightgreen {
+        background-position: 0 -100px;
+      }
+
+      .rainbow-green {
+        background-position: -100px -100px;
+      }
+      .rainbow-skyblue {
+        background-position: -200px -100px;
+      }
+
+      .rainbow-blue {
+        background-position: -0 -200px;
+      }
+
+      .rainbow-indigo {
+        background-position: -100px -200px;
+      }
+
+      .rainbow-purple {
+        background-position: -200px -200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>원본 이미지</h2>
+    <img class="rainbow box__main" />
+
+    <h2>이미지 스프라이트</h2>
+    <span>
+      <img class="rainbow box__sub rainbow-red" />
+      <img class="rainbow box__sub rainbow-orange" />
+      <img class="rainbow box__sub rainbow-yellow" />
+      <img class="rainbow box__sub rainbow-lightgreen" />
+      <img class="rainbow box__sub rainbow-green" />
+      <img class="rainbow box__sub rainbow-skyblue" />
+      <img class="rainbow box__sub rainbow-blue" />
+      <img class="rainbow box__sub rainbow-indigo" />
+      <img class="rainbow box__sub rainbow-purple" />
+    </span>
+    <script></script>
+  </body>
+</html>
