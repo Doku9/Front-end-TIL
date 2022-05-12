@@ -1,0 +1,31 @@
+.home {
+  justify-content: center;
+  display: grid;
+  padding-top: 3rem;
+}
+
+.profile {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: auto;
+
+  border-radius: 50%;
+}
+
+.title,
+.content {
+  text-align: center;
+}
+
+.box {
+  padding: 2rem;
+  background: cadetblue;
+  margin: auto;
+  border-radius: 5px;
+  color: white;
+}
+
+.shadow {
+  box-shadow: 5px 5px black;
+}
