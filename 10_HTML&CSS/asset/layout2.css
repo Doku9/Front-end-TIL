@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-background {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-image: url(../asset/img/shoes.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  /* filter: brightness(70%); */
+}
+
+.main-title {
+  color: white;
+  font-size: 40px;
+  margin-top: 150px;
+}
+
+.main-content {
+  color: white;
+  width: 800px;
+  font-size: 15px;
+  margin-top: 2rem;
+}
+
+.main-button {
+  margin-top: 1rem;
+  font-size: 20px;
+  height: 4rem;
+  padding: 0 2rem;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.main-box {
+  position: absolute;
+  bottom: -7rem;
+  width: 50rem;
+  padding: 2rem;
+  background-color: gainsboro;
+  text-align: center;
+}
+
+.main-box h4 {
+  margin-bottom: 1rem;
+}
