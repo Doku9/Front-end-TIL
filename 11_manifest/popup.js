@@ -1,6 +1,5 @@
 // Initialize button with user's preferred color
 let changeColor = document.getElementById("changeColor");
-let returnColor = document.getElementById("returnColor");
 
 chrome.storage.sync.get("color", ({ color }) => {
   changeColor.style.backgroundColor = color;
@@ -24,15 +23,4 @@ function setPageBackgroundColor() {
   });
 }
 
-returnColor.addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    function: returnPageBackgroundColor,
-  });
-});
-
-function returnPageBackgroundColor() {
-  document.body.style.backgroundColor = "#eee";
-}
+console.log(chrome.bookmarks);
